@@ -1,0 +1,43 @@
+{
+  "name": "AnnotatePro - Mark and Comment Tool.",
+  "version": "3.2",
+  "description": "Revolutionize your online reading experience with advanced annotation tools.",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": ["storage", "activeTab", "tabs", "http://*/", "https://*/"],
+  "commands": {
+    "highlight_text": {
+      "suggested_key": {
+        "mac": "Command+K",
+        "default": "Ctrl+K"
+      },
+      "description": "Highlight Selected Text"
+    },
+    "clear_storage": {
+      "suggested_key": {
+        "mac": "Command+Shift+A",
+        "default": "Ctrl+Shift+A"
+      },
+      "description": "Clear highlights for current URL"
+    }
+  },
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "images/photo_annot_1.png",
+    "32": "images/photo_annot_2.png",
+    "48": "images/photo_annot_3.png",
+    "128": "images/photo_annot_4.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "run_at": "document_end",
+      "js": ["content_script.js"],
+      "css": ["style.css"]
+    }
+  ],
+  "manifest_version": 2
+}
